@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <!-- <link rel="stylesheet" href=""> -->
+</head>
+<body>
+    <h1>Rock Paper Scissors Game</h1>
+    <script>
+        console.log("alive and kicking");
+        
+        //function for generating the number that will be mapped to a weapon
+        function getComputerChoice(){
+            //this returns 0 -rock // 1- paper // 2- scissors
+            let computerGuess = (Math.floor(Math.random()*3));
+            console.log("the variable type is:  "+ typeof(computerGuess));
+            return computerGuess;
+        }
+        //function to take the number and pick the weapon
+        function compWeapon(){
+            let compNumber = getComputerChoice();
+            console.log("the variable type of compNumber is:  "+ typeof(compNumber));
+            console.log("computer number : " + compNumber);
+            
+            let computerWeapon = compNumber === 0? "rock": compNumber === 1? "paper" : "scissors" ;
+            return computerWeapon;
+
+            // this is the exact same just shortform.
+            // if(compNumber === 0){
+            //     console.log("rock");
+            //     computerWeapon = "rock";
+            //     return computerWeapon; 
+            // } 
+            // else 
+            // if(compNumber === 1){
+            //     console.log("paper");
+            //     computerWeapon = "paper";
+            //     return computerWeapon; 
+            // }
+            // else {
+            //     console.log("scissors");
+            //     computerWeapon = "scissors";
+            //     return computerWeapon + " really?";
+            // }
+        }
+
+        console.log("compWeapon: "+compWeapon());
+
+
+
+    </script>
+</body>
+</html>
+
+<p>
+Rock paper scissors
+
+</p>  
