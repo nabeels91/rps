@@ -9,25 +9,27 @@
 <body>
     <h1>Rock Paper Scissors Game</h1>
     <script>
-        console.log("alive and kicking");
+        
         
         //function for generating the number that will be mapped to a weapon
         function getComputerChoice(){
             //this returns 0 -rock // 1- paper // 2- scissors
             let computerGuess = (Math.floor(Math.random()*3));
-            console.log("the variable type is:  "+ typeof(computerGuess));
+            // console.log("the variable type is:  "+ typeof(computerGuess));
             return computerGuess;
         }
         //function to take the number and pick the weapon
         function compWeapon(){
             let compNumber = getComputerChoice();
-            console.log("the variable type of compNumber is:  "+ typeof(compNumber));
-            console.log("computer number : " + compNumber);
+            // console.log("the variable type of compNumber is:  "+ typeof(compNumber));
+            // console.log("computer number : " + compNumber);
             
-            let computerWeapon = compNumber === 0? "rock": compNumber === 1? "paper" : "scissors" ;
+            let computerWeapon = compNumber === 0? "Rock": compNumber === 1? "Paper" : "Scissors" ;
             return computerWeapon;
+        }
 
-            // this is the exact same just shortform.
+       // console.log("compWeapon: "+compWeapon());
+            // this is the exact same just longform.
             // if(compNumber === 0){
             //     console.log("rock");
             //     computerWeapon = "rock";
@@ -44,11 +46,64 @@
             //     computerWeapon = "scissors";
             //     return computerWeapon + " really?";
             // }
+
+        //now we get the user input from the console human selects a weapon by choosing 0/1/2
+        function getHumanChoice(){
+
+            let input= prompt("pick a number from 0-2, 0=rock, 1=paper, 2=scissors");
+            // console.log("this is the humans input: "+input);
+            return input;
+        }
+        
+        //function for converting the number choice to a weapon
+        function humanWeapon(){
+            let hw = parseInt(getHumanChoice());
+            let HumWeapChoice = hw === 0 ? "Rock" : hw ===1 ? "Paper" : "Scissors";
+            // console.log("Human weapon choice : "+HumWeapChoice);
+            return HumWeapChoice;
         }
 
-        console.log("compWeapon: "+compWeapon());
+        //now we compare the 2 - human and computrer weapon and we see who wins and when
+        // rock beats scissors
+        // scissors beats paper
+        // paper beats rock
 
+        function gLogic(){
+            let cw = compWeapon();
+            let hw = humanWeapon();
+            console.log("Computer weapon choice  : "+cw);
+            console.log("Human weapon choice  : "+ hw);
+            let game = cw === hw ? "draw": cw ==="Scissors" && hw==="Paper" ? "computer wins": cw ==="Paper" && hw === "Rock" ? "computer wins": cw === "Rock" && hw ==="Scissors" ? "computer wins" : "Human Wins";
 
+            console.log("this "+game);
+            return game;
+        }
+        //make it best to 3 games
+        // i want the number of games to keep running until either player makes it to 3.
+        function scoreCount(){  
+            let humanScore=0;
+            let computerScore=0;
+            let draw=0;
+        while(humanScore < 3 && computerScore < 3){
+            let gl = gLogic();
+            console.log("this is the type : "+typeof(gl)+ " and this is the content :: " + gl);
+            // let WCount = 
+            gl === "computer wins" ? computerScore++ :  gl ==="Human Wins" ? humanScore++ : draw++;
+            // WCount : ${WCount} || 
+            console.log(`humanScore = ${humanScore} || computerScore = ${computerScore} || draw = ${draw}`);
+            
+        }
+        let winnerIs = humanScore ===3? "human won" : computerScore ===3? "Computer won": "Keep Going" ;
+        console.log(winnerIs);
+
+        return winnerIs;
+        
+    }
+    console.log("alive and kicking");
+    sc = scoreCount;
+    sc();
+
+    
 
     </script>
 </body>
@@ -56,5 +111,4 @@
 
 <p>
 Rock paper scissors
-
 </p>  
