@@ -60,7 +60,7 @@
         }
 
         //make it best to 3 games
-        // i want the number of games to keep running until either player makes it to 3.
+        // i want the number of games to keep running until either player makes it to 3 - draws are limitless.
         function scoreCount(){  
             let humanScore=0;
             let computerScore=0;
@@ -68,21 +68,22 @@
         while(humanScore < 3 && computerScore < 3){
             let gl = gLogic();
             console.log("this is the type : "+typeof(gl)+ " and this is the content :: " + gl);
-            // let WCount = 
             gl === "computer wins" ? computerScore++ :  gl ==="Human Wins" ? humanScore++ : draw++;
-            // WCount : ${WCount} || 
             console.log(`humanScore = ${humanScore} || computerScore = ${computerScore} || draw = ${draw}`);
+
+            
             
         }
         let winnerIs = humanScore ===3? "human won" : computerScore ===3? "Computer won": "Keep Going" ;
-        console.log(winnerIs);
+        console.log("who won? the "+winnerIs);
 
         return winnerIs;
         
     }
     console.log("alive and kicking");
-    sc = scoreCount;
-    sc();
+    sc =scoreCount();
+    console.log("this is the variable "+sc);
+   
 
     </script>
 </body>
