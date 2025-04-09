@@ -53,3 +53,4 @@ return winnerIs;
 console.log("alive and kicking");
 sc =scoreCount();
 console.log("this is the variable "+sc);
+
