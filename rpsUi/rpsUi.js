@@ -9,6 +9,12 @@ const computerC = document.querySelector(".comp");
 const roundWinner = document.querySelector(".roundWinner");
 const winner = document.querySelector(".winner");
 
+//scoreboard
+const userS = document.querySelector(".userS");
+const compS = document.querySelector(".compS");
+
+
+
 let humanChoice = "";
 let numOfGames = 0;
 let computerSelection = "";
@@ -16,6 +22,7 @@ let winCount = "";
 let humanScore = 0;
 let computerScore = 0;
 let draw = 0;
+
 
 
 function computerChoice(){
@@ -91,11 +98,12 @@ function ScoreCount(){
         computerScore++;
     }
     console.log(`Draws: ${draw} || Human Wins: ${humanScore} || Computer Wins : ${computerScore}`);
+    userS.textContent = humanScore;
+    compS.textContent = computerScore;
     
 }
 
 function gamesResult(){
-    console.log("logged");
     if(humanScore === numOfGames || computerScore === numOfGames){
         // disable buttons
         gameButtons.forEach(button => {
@@ -142,6 +150,8 @@ function reset(){
     computerC.textContent = "";
     roundWinner.textContent="";
 
+    userS.textContent = humanScore;
+    compS.textContent = computerScore;
 
     gameButtons.forEach(button => {
         button.disabled = false;

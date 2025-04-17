@@ -3,3 +3,47 @@ img {
     height: 300px
 
 }
+h1{
+    margin-left: 150px;
+}
+.scoreBoard{
+    display:flex;
+    background-color: blanchedalmond;
+    width: 400px;
+    justify-content: space-evenly;
+    margin-left: 150px;
+    
+   
+
+    
+}
+
+.scoreBoard > div {
+    background-color: beige;
+    text-align: center;
+    display: flex;
+
+}
+
+div {
+    /* margin-left: 150px; */
+    font-size: 25px;
+}
+
+.userS , .compS {
+    font-size: 45px;
+    padding: 20px;
+}
+
+.userS{
+    background-color: aqua;
+}
+
+.compS {
+    background-color: bisque;
+}
+
+.resetBtn{
+    font-size: 30px;
+    margin-left: 200px;
+}
