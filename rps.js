@@ -1,56 +1,74 @@
-function getComputerChoice(){
-    let computerGuess = (Math.floor(Math.random()*3));
-    return computerGuess;
-}
+ //function for generating the number that will be mapped to a weapon
+        function getComputerChoice(){
+            //this returns 0 -rock // 1- paper // 2- scissors
+            let computerGuess = (Math.floor(Math.random()*3));
+            // console.log("the variable type is:  "+ typeof(computerGuess));
+            return computerGuess;
+        }
+        //function to take the number and pick the weapon
+        function compWeapon(){
+            let compNumber = getComputerChoice();
+            // console.log("the variable type of compNumber is:  "+ typeof(compNumber));
+            // console.log("computer number : " + compNumber);
+            
+            let computerWeapon = compNumber === 0? "Rock": compNumber === 1? "Paper" : "Scissors" ;
+            return computerWeapon;
+        }
 
-function compWeapon(){
-    let compNumber = getComputerChoice();
-    let computerWeapon = compNumber === 0? "Rock": compNumber === 1? "Paper" : "Scissors" ;
-    return computerWeapon;
-}
+        //now we get the user input from the console human selects a weapon by choosing 0/1/2
+        function getHumanChoice(){
 
-function getHumanChoice(){
+            let input= prompt("pick a number from 0-2, 0=rock, 1=paper, 2=scissors");
+            // console.log("this is the humans input: "+input);
+            return input;
+        }
+        
+        //function for converting the number choice to a weapon
+        function humanWeapon(){
+            let hw = parseInt(getHumanChoice());
+            let HumWeapChoice = hw === 0 ? "Rock" : hw ===1 ? "Paper" : "Scissors";
+            // console.log("Human weapon choice : "+HumWeapChoice);
+            return HumWeapChoice;
+        }
 
-    let input= prompt("pick a number from 0-2, 0=rock, 1=paper, 2=scissors");
-    return input;
-}
+        //now we compare the 2 - human and computrer weapon and we see who wins and when
+        // rock beats scissors
+        // scissors beats paper
+        // paper beats rock
 
-function humanWeapon(){
-    let hw = parseInt(getHumanChoice());
-    let HumWeapChoice = hw === 0 ? "Rock" : hw ===1 ? "Paper" : "Scissors";
-    return HumWeapChoice;
-}
+        function gLogic(){
+            let cw = compWeapon();
+            let hw = humanWeapon();
+            console.log("Computer weapon choice  : "+cw);
+            console.log("Human weapon choice  : "+ hw);
+            let game = cw === hw ? "draw": cw ==="Scissors" && hw==="Paper" ? "computer wins": cw ==="Paper" && hw === "Rock" ? "computer wins": cw === "Rock" && hw ==="Scissors" ? "computer wins" : "Human Wins";
 
-function gLogic(){
-    let cw = compWeapon();
-    let hw = humanWeapon();
-    console.log("Computer weapon choice  : "+cw);
-    console.log("Human weapon choice  : "+ hw);
-    let game = cw === hw ? "draw": cw ==="Scissors" && hw==="Paper" ? "computer wins": cw ==="Paper" && hw === "Rock" ? "computer wins": cw === "Rock" && hw ==="Scissors" ? "computer wins" : "Human Wins";
+            console.log("this "+game);
+            return game;
+        }
 
-    console.log("this "+game);
-    return game;
-}
+        //make it best to 3 games
+        // i want the number of games to keep running until either player makes it to 3 - draws are limitless.
+        function scoreCount(){  
+            let humanScore=0;
+            let computerScore=0;
+            let draw=0;
+        while(humanScore < 3 && computerScore < 3){
+            let gl = gLogic();
+            console.log("this is the type : "+typeof(gl)+ " and this is the content :: " + gl);
+            gl === "computer wins" ? computerScore++ :  gl ==="Human Wins" ? humanScore++ : draw++;
+            console.log(`humanScore = ${humanScore} || computerScore = ${computerScore} || draw = ${draw}`);
 
-function scoreCount(){  
-    let humanScore=0;
-    let computerScore=0;
-    let draw=0;
-while(humanScore < 3 && computerScore < 3){
-    let gl = gLogic();
-    console.log("this is the type : "+typeof(gl)+ " and this is the content :: " + gl);
-    gl === "computer wins" ? computerScore++ :  gl ==="Human Wins" ? humanScore++ : draw++;
-    console.log(`humanScore = ${humanScore} || computerScore = ${computerScore} || draw = ${draw}`);
- 
-}
+            
+            
+        }
+        let winnerIs = humanScore ===3? "human won" : computerScore ===3? "Computer won": "Keep Going" ;
+        console.log("who won? the "+winnerIs);
 
-let winnerIs = humanScore ===3? "human won" : computerScore ===3? "Computer won": "Keep Going" ;
-console.log("who won? the "+winnerIs);
-
-return winnerIs;
-
-}
-console.log("alive and kicking");
-sc =scoreCount();
-console.log("this is the variable "+sc);
-
+        return winnerIs;
+        
+    }
+    console.log("alive and kicking");
+    sc =scoreCount();
+    console.log("this is the variable "+sc);
+   
